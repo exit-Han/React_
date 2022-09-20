@@ -16,7 +16,7 @@ function App() {
   //   todoList.map((item.complete) =>{...item, complete : !item.complete})
   // }
 
-  // const filterTodos = todoList.filter(todoList => todoList.complete === true);
+  // const filterTodos = todoList.filter(todoList => todoList.complete === true); ... .. .
 const onRemove = (complete) => {
   setTodoList(todoList.filter((item) => 
     item.complete === !complete
