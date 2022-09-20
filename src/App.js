@@ -2,33 +2,38 @@ import './App.css';
 import React, { useState } from 'react';
 import TodoBoard from './component/TodoBoard';
 import TodoItem from './component/TodoItem';
-
-// 1. 아이템이 true 면 
-// 2. 클리어 버튼, 클릭 -> 삭제 
-
-// 1. 아이템의 값 만들기
-// 2. 아이템의 값 전달하기 
 function App() {
 
   const [inputValue, setInputValue] = useState("")
   const [todoList, setTodoList] = useState([])
+
   const additem = () => {
-    setTodoList([...todoList, {id:todoList.length, task: inputValue, complete: false }])
+    setTodoList([...todoList, {id:todoList.length, task:inputValue, complete: false} ])
     setInputValue("")
   }
 
-// const delelteClick = (key) => {
-//   setTodoList(
-//     todoList.filter((one, delkey) => (delkey !==key));
-//   )}
+  // const oninsertToggle = ()=> {
+  //   todoList.map((item.complete) =>{...item, complete : !item.complete})
+  // }
 
+  // const filterTodos = todoList.filter(todoList => todoList.complete === true);
+const onRemove = (complete) => {
+  setTodoList(todoList.filter((item) => 
+    item.complete === !complete
+  ))
+      }
+    
+  
+
+ 
 
   return (
     <div>
-        
-      <TodoBoard todoList={todoList}></TodoBoard>
+      <TodoBoard todoList={todoList} inputValue={inputValue} setTodoList={setTodoList}></TodoBoard>
       <div>
-      <button>Clear Completed</button><p/>
+        
+        <button onClick={onRemove}>Clear Completed</button><p/>
+  
           <input value={inputValue}
             type="text"
             placeholder='Enter task...'
@@ -39,8 +44,26 @@ function App() {
       </div>
     </div>
   );
-}
 
+  }
 export default App;
 
+// onClick={()=>{
+//         const chtrue = []
+//         //prosp.item.comlete
+//         for( var i = 0; i < todoList.length; i++)
+//         if(TodoItem.complete(true) ===  TodoItem.complete(true)) {
+//           // 스타일 적용 -> 까먹음 그 중간 줄 긋기
+//           chtrue.push()
 
+//         }
+
+
+
+
+
+//투두 removeBTN 
+
+// const removeTodo = id => {
+//   const removeArr = [...todoList].filter(todoList => todoValue.id !== id );
+// }
