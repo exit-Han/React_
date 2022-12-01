@@ -1,54 +1,39 @@
-
-
-import './App.css';
 import React, { useState } from 'react';
-import TodoBoard from './component/TodoBoard';
-import TodoItem from './component/TodoItem';
-// 1. 아이템이 true 면 
-// 2. 클리어 버튼, 클릭 -> 삭제 
+import './App.css';
 
-// 1. 아이템의 값 만들기
-// 2. 아이템의 값 전달하기 
+const Todos = ({ item }) => (
+  <div className='my-todo-h'>
+    <div className='my-todo'>{item.todo}</div>
+  </div>
+)
+
+const App = () => {
+
+  const [todolist, setTodolist] = useState([{
+    id: 1, todo: "리액트를 배워봅시다"
+  }])
+
+  const [addval, setAddval] = useState("")
 
 
-  //   setInputValue([
-  //     {complete:false, id:1 , task:"할 일1"},
-  //   {complete:false, id:2 , task:"할 일2"},
-  // {complete:false, id:3 , task:"할 일3"}]);
+  const add = () => {
+    setTodolist([...todolist,
+    { id: todolist.length, todo: addval }])
 
-function App() {
-
-  const [inputValue, setInputValue] = useState("")
-  const [todoList, setTodoList] = useState([])
-  const additem = () => {
-    setTodoList([...todoList, inputValue])
-    setInputValue("")
   }
 
-// const delelteClick = (key) => {
-//   setTodoList(
-//     todoList.filter((one, delkey) => (delkey !==key));
-//   )}
-
-
   return (
-    <div>
-        
-      <TodoBoard todoList={todoList}></TodoBoard>
-      <div>
-      <button vlaue="Clear Completed">Clear Completed</button><p/>
-          <input value={inputValue}
-            type="text"
-            placeholder='Enter task...'
-            onChange={(event) => setInputValue(event.target.value)} />
-            
-          <button onClick={additem}>Submit</button>
-    
+    <div className='todo-Header'>
+      <div className='stop'>
+        <div className='todo-input'><input value={addval} onChange={(event) => setAddval(event.target.value)} />
+          <button onClick={add}>추가하기</button></div>
+        <div className='todo-list-Header'>
+          <div className='h2'><h2>Todo List</h2></div>
+          <div className='todo-aa'>{todolist.map((item) => <Todos item={item} key={todolist.id} />)}</div>
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
-
-

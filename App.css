@@ -1,0 +1,43 @@
+.todo-Header{
+  display: flex;
+  
+  align-items: center;
+  height: 100vh;
+
+
+}
+.h2{
+display: flex;
+justify-content: center;
+
+
+}
+
+.stop{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.todo-aa{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.my-todo-h{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.my-todo{
+  display: flex;
+ 
+}
+
+.todo-input{
+  display: flex;
+  justify-content: center;
+  
+  
+}
